@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:autoFitViewGroup="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.williamchik.AutoFitViewGroup
+            android:id="@+id/afvg_demo_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            autoFitViewGroup:rowMargin="10dp"
+            autoFitViewGroup:columnMargin="10dp"/>
+</LinearLayout>

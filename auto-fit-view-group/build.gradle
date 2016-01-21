@@ -1,0 +1,105 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.0.1'
+}
+
+version = "1.0.0" // #CONFIG# // project version
+
+def siteUrl = 'https://github.com/WiiliamChik/AutoFitViewGroup' // #CONFIG# // project homepage
+
+group = "com.williamchik" // #CONFIG# // Maven Group ID for the artifact (pageckage name is ok)
+
+// generate package pom
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                name 'Auto Fit View Group' // #CONFIG# // project title
+                url siteUrl
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'WilliamChik' // #CONFIG# // your user id (you can write your nickname)
+                        name 'WilliamChik' // #CONFIG# // your user name
+                        email '451044982@qq.com' // #CONFIG# // your email
+                    }
+                }
+                scm {
+                    connection siteUrl
+                    developerConnection siteUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+// generate package sourcejar
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+// generate package javadoc
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+// generate package javadocjar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// load local keys and upload to bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "autofitviewgroup" // #CONFIG# project name in jcenter
+        websiteUrl = siteUrl
+        vcsUrl = siteUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}

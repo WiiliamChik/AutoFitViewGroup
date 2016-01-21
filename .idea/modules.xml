@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AutoFitVeiwGroupDemo.iml" filepath="$PROJECT_DIR$/AutoFitVeiwGroupDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auto-fit-view-group/auto-fit-view-group.iml" filepath="$PROJECT_DIR$/auto-fit-view-group/auto-fit-view-group.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auto-fit-view-group-demo/auto-fit-view-group-demo.iml" filepath="$PROJECT_DIR$/auto-fit-view-group-demo/auto-fit-view-group-demo.iml" />
+    </modules>
+  </component>
+</project>

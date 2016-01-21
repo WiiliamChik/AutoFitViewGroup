@@ -1,0 +1,6 @@
+<resources>
+    <!-- auto fit linear layout start -->
+    <dimen name="auto_fit_linear_layout_default_row_margin">5dp</dimen>
+    <dimen name="auto_fit_linear_layout_default_column_margin">5dp</dimen>
+    <!-- auto fit linear layout end -->
+</resources>
