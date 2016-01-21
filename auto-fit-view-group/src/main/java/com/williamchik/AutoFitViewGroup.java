@@ -12,7 +12,7 @@ import com.williamchik.autofitviewgroup.R;
 import java.util.Hashtable;
 
 /**
- * 根据布局内的子控件宽度自动换行的 LinearLayout，带有默认的行边距和列边距，暂时只支持等高的子视图的添加。
+ * 根据布局内的子控件宽度自动换行的 ViewGroup，带有默认的行边距和列边距，暂时只支持等高的子视图的添加。
  *
  * @author WilliamChik on 15/9/17.
  */
